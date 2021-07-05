@@ -16,6 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class TrendingFragment: BaseFragment() {
     override val viewModel by viewModel<TrendingViewModel>()
+    var query: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +41,7 @@ class TrendingFragment: BaseFragment() {
         }
 
         //Load giphy data through API
+        viewModel.initLoading()
         viewModel.loadGifs("")
     }
 
@@ -49,6 +51,20 @@ class TrendingFragment: BaseFragment() {
         val searchItem = menu.findItem(R.id.search)
         val searchView = searchItem.actionView as SearchView
         searchView.queryHint = getString(R.string.search)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if(query != newText) {
+                    query = newText ?: ""
+                    viewModel.loadGifs(query)
+                }
+                return true
+            }
+        })
         super.onCreateOptionsMenu(menu, inflater)
     }
 

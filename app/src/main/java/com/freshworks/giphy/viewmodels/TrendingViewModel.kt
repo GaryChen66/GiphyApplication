@@ -16,8 +16,6 @@ class TrendingViewModel(giphyRepository: GiphyRepository): BaseViewModel(giphyRe
         get() = _giphy
 
     fun loadGifs(query: String) {
-        _giphy.postValue(DataResult(null, null))
-
         compositeDisposable.add(
             giphyRepository.searchGifs(query)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -31,6 +29,10 @@ class TrendingViewModel(giphyRepository: GiphyRepository): BaseViewModel(giphyRe
                     }
                 )
         )
+    }
+
+    fun initLoading() {
+        _giphy.postValue(DataResult(null, null))
     }
 
     val favoriteGifs: LiveData<List<Favorite>>
