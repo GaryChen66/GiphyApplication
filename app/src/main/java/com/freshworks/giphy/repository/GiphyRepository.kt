@@ -1,6 +1,8 @@
 package com.freshworks.giphy.repository
 
+import androidx.lifecycle.LiveData
 import com.freshworks.giphy.repository.api.GiphyAPI
+import com.freshworks.giphy.repository.db.Favorite
 import com.freshworks.giphy.repository.db.FavoriteDao
 import com.freshworks.giphy.repository.entities.Response
 import io.reactivex.Single
@@ -22,5 +24,9 @@ class GiphyRepository(private val giphyAPI: GiphyAPI, private val favoriteDao: F
         }
 
         return giphyData
+    }
+
+    fun getFavoriteGifs(): LiveData<List<Favorite>> {
+        return favoriteDao.getFavoriteGifs()
     }
 }
