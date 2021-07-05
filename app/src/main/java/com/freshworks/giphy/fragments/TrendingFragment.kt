@@ -6,6 +6,10 @@ import com.freshworks.giphy.repository.model.GiphyModel
 import com.freshworks.giphy.viewmodels.TrendingViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * Fragment to show trending gifs
+ * @see BaseFragment
+ */
 class TrendingFragment: BaseFragment() {
     override val viewModel by viewModel<TrendingViewModel>()
 

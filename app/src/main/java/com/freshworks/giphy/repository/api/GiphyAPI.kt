@@ -8,6 +8,9 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * Define api functions to get trending gifs, and search gifs with keyword
+ */
 interface GiphyAPI {
     @GET("trending")
     fun getTrendingGifs(

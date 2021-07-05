@@ -23,11 +23,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Set adapter to tab view pager
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
         val viewPager: ViewPager2 = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
 
+        //Connect the tablayout and viewpager
         TabLayoutMediator(tabs, viewPager) {
             tab, position -> tab.text = getString(TAB_TITLES[position])
         }.attach()

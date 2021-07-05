@@ -8,6 +8,12 @@ import com.freshworks.giphy.repository.entities.Response
 import com.freshworks.giphy.repository.model.GiphyModel
 import io.reactivex.Single
 
+/**
+ * Repository class to access database, and api
+ *
+ * @see GiphyAPI
+ * @see FavoriteDao
+ */
 class GiphyRepository(private val giphyAPI: GiphyAPI, private val favoriteDao: FavoriteDao) {
     fun searchGifs(query: String): Single<Response.GiphyData> {
         return (if(query == "") giphyAPI.getTrendingGifs() else giphyAPI.searchGifs(query = query))
