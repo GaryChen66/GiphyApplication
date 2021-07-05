@@ -14,4 +14,13 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         />
 
+    <TextView
+        android:id="@+id/no_gif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/no_gif_text_size"
+        android:gravity="center"
+        android:visibility="gone" />
+
 </FrameLayout>

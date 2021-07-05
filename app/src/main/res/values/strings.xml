@@ -2,8 +2,5 @@
     <string name="app_name">GiphyApplication</string>
     <string name="tab_text_1">Trending</string>
     <string name="tab_text_2">Favorite</string>
-
-    <!-- Dimens used on gif fragment -->
-    <dimen name="gif_item_height">200dp</dimen>
-    <dimen name="gif_item_padding">10dp</dimen>
+    <string name="no_favorite">There is no favorite giphy. Please add on Trending page by clicking favorite icon.</string>
 </resources>

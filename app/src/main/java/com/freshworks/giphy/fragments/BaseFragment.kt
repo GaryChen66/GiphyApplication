@@ -23,6 +23,7 @@ abstract class BaseFragment: Fragment(R.layout.fragment_main) {
 
     //Binding
     private lateinit var _binding: FragmentMainBinding
+    val binding get() = _binding
 
     //Adapter
     private var _listAdapter =  GiphyItemListAdapter(::setFavoriteStatus)
