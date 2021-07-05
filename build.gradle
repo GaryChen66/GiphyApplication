@@ -4,6 +4,7 @@ buildscript {
             kotlin: "1.5.0",
             room: "2.3.0",
             retrofit: "2.6.3",
+            ok_http: "4.9.0",
             rx_android: "2.1.1",
             rx_java: "2.2.6",
             koin: "2.1.5",
