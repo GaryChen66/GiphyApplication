@@ -13,7 +13,8 @@ class Response {
     class Giphy(
         @Json(name = "id") val id: String,
         @Json(name = "title") val title: String,
-        @Json(name = "images") val images: Images
+        @Json(name = "images") val images: Images,
+        var isFavorite: Boolean = false
     )
 
     @JsonClass(generateAdapter = true)
