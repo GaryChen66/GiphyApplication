@@ -12,7 +12,7 @@ class GiphyApplication: Application() {
         super.onCreate()
         startKoin {
             androidContext(this@GiphyApplication)
-            modules(viewModelModule, repositoryModule, networkModule)
+            modules(repositoryModule, viewModelModule, networkModule)
         }
     }
 }

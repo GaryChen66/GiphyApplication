@@ -8,6 +8,8 @@ buildscript {
             rx_android: "2.1.1",
             rx_java: "2.2.6",
             koin: "2.1.5",
+            moshi: "1.12.0",
+            glide: "4.12.0",
     ]
 
     repositories {
