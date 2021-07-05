@@ -1,4 +1,4 @@
-package com.freshworks.giphyapplication.ui.main
+package com.freshworks.giphy.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.freshworks.giphyapplication.R
-import com.freshworks.giphyapplication.databinding.FragmentMainBinding
+import com.freshworks.giphy.databinding.FragmentMainBinding
 
 /**
  * A placeholder fragment containing a simple view.

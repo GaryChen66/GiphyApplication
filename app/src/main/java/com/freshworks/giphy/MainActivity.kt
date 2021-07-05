@@ -1,15 +1,11 @@
-package com.freshworks.giphyapplication
+package com.freshworks.giphy
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import com.freshworks.giphyapplication.ui.main.SectionsPagerAdapter
-import com.freshworks.giphyapplication.databinding.ActivityMainBinding
+import com.freshworks.giphy.databinding.ActivityMainBinding
+import com.freshworks.giphy.ui.main.SectionsPagerAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,11 +22,5 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = binding.fab
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 }

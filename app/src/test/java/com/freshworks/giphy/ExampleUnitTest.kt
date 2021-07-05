@@ -1,4 +1,4 @@
-package com.freshworks.giphyapplication
+package com.freshworks.giphy
 
 import org.junit.Test
 
