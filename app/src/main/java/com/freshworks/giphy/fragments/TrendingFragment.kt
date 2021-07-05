@@ -1,7 +1,11 @@
 package com.freshworks.giphy.fragments
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import androidx.appcompat.widget.SearchView
+import com.freshworks.giphy.R
 import com.freshworks.giphy.repository.model.GiphyModel
 import com.freshworks.giphy.viewmodels.TrendingViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -12,6 +16,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class TrendingFragment: BaseFragment() {
     override val viewModel by viewModel<TrendingViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,6 +41,15 @@ class TrendingFragment: BaseFragment() {
 
         //Load giphy data through API
         viewModel.loadGifs("")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.options_menu, menu)
+
+        val searchItem = menu.findItem(R.id.search)
+        val searchView = searchItem.actionView as SearchView
+        searchView.queryHint = getString(R.string.search)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun setFavoriteStatus(item: GiphyModel, isFavorite: Boolean) {

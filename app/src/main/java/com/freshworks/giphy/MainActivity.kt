@@ -33,5 +33,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tabs, viewPager) {
             tab, position -> tab.text = getString(TAB_TITLES[position])
         }.attach()
+
+        setSupportActionBar(binding.toolbar)
     }
 }
