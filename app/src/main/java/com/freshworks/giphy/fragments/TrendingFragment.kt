@@ -21,11 +21,19 @@ class TrendingFragment: BaseFragment() {
                 }
             }
         }
+        viewModel.favoriteGifs.observe(viewLifecycleOwner) {
+            viewModel.loadGifs("")
+        }
 
         //Load giphy data through API
         viewModel.loadGifs("")
     }
 
     override fun setFavoriteStatus(item: GiphyModel, isFavorite: Boolean) {
+        if(isFavorite) {
+            viewModel.insertFavoriteGif(item)
+        } else {
+            viewModel.removeFavoriteGif(item.id)
+        }
     }
 }

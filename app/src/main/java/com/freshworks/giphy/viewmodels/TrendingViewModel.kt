@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.freshworks.giphy.helper.GiphyModelList
 import com.freshworks.giphy.repository.GiphyRepository
+import com.freshworks.giphy.repository.db.Favorite
 import com.freshworks.giphy.repository.entities.DataResult
 import com.freshworks.giphy.repository.model.GiphyModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -31,4 +32,7 @@ class TrendingViewModel(giphyRepository: GiphyRepository): BaseViewModel(giphyRe
                 )
         )
     }
+
+    val favoriteGifs: LiveData<List<Favorite>>
+        get() = giphyRepository.getFavoriteGifs()
 }

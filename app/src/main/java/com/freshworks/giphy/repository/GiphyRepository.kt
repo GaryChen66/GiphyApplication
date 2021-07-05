@@ -5,6 +5,7 @@ import com.freshworks.giphy.repository.api.GiphyAPI
 import com.freshworks.giphy.repository.db.Favorite
 import com.freshworks.giphy.repository.db.FavoriteDao
 import com.freshworks.giphy.repository.entities.Response
+import com.freshworks.giphy.repository.model.GiphyModel
 import io.reactivex.Single
 
 class GiphyRepository(private val giphyAPI: GiphyAPI, private val favoriteDao: FavoriteDao) {
@@ -28,5 +29,13 @@ class GiphyRepository(private val giphyAPI: GiphyAPI, private val favoriteDao: F
 
     fun getFavoriteGifs(): LiveData<List<Favorite>> {
         return favoriteDao.getFavoriteGifs()
+    }
+
+    fun insertFavoriteGif(item: GiphyModel) {
+        favoriteDao.insert(Favorite(null, item.id, item.title, item.path))
+    }
+
+    fun removeFavoriteGif(id:String) {
+        favoriteDao.delete(id)
     }
 }
