@@ -8,4 +8,5 @@ import androidx.room.RoomDatabase
     version = 10
 )
 abstract class GiphyDb: RoomDatabase() {
+    abstract fun favoriteDao(): FavoriteDao
 }
