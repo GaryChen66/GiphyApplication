@@ -37,12 +37,11 @@ class TrendingFragment: BaseFragment() {
             }
         }
         viewModel.favoriteGifs.observe(viewLifecycleOwner) {
-            viewModel.loadGifs("")
+            viewModel.loadGifs(query)
         }
 
         //Load giphy data through API
         viewModel.initLoading()
-        viewModel.loadGifs("")
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

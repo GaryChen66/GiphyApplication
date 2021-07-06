@@ -19,7 +19,7 @@ val repositoryModule = module {
 
 val networkModule = module {
     single { GiphyApiFactory.create(get()) }
-    single { RetrofitFactory.create(get(), get()) }
-    single { OkHttpClientFactory.create() }
-    single { MoshiFactory.create() }
+    factory { RetrofitFactory.create(get(), get()) }
+    factory { OkHttpClientFactory.create() }
+    factory { MoshiFactory.create() }
 }
