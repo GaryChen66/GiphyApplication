@@ -8,7 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.freshworks.giphy.R
 import com.freshworks.giphy.databinding.GifItemBinding
 import com.freshworks.giphy.repository.model.GiphyModel
@@ -39,12 +42,23 @@ class GiphyItemListAdapter(private val callback: (model: GiphyModel, isFavorite:
         : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GiphyModel) {
 
+            val circularProgressDrawable = CircularProgressDrawable(binding.root.context)
+            circularProgressDrawable.strokeWidth = 5f
+            circularProgressDrawable.centerRadius = 30f
+            circularProgressDrawable.start()
+
+            val requestOptions = RequestOptions()
+                .placeholder(circularProgressDrawable)
+                .skipMemoryCache(true)
+                .fitCenter()
+                .error(ColorDrawable(Color.GREEN))
+                .fallback(ColorDrawable(Color.GREEN))
+
             binding.apply {
                 Glide.with(itemView.context)
                     .load(item.path)
-                    .error(ColorDrawable(Color.GREEN))
-                    .fallback(ColorDrawable(Color.GREEN))
-                    .fitCenter()
+                    .apply(requestOptions)
+                    .transition(DrawableTransitionOptions.withCrossFade())
                     .into(gifItemContent)
 
                 gifItemTitle.text = item.title
